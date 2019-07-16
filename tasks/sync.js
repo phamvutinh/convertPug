@@ -7,20 +7,17 @@ const browserSync = require('browser-sync').create();
 export default function () {
 	task('browserSync', function () {
 		browserSync.init({
-			watch: true,
-			injectChanges: true,
-			open: 'local',
+			wacth: true,
 			port: 8000 || 3000,
 			server: {
 				baseDir: "./dist",
 			},
+			logPrefix: "TinhPhạm",
+			logFileChanges: false,
 		});
-		watch(['src/components/**/*.+(sass|scss)', 'src/shared/**/*.+(sass|scss)','src/pages/**/*.+(sass|scss)' ],
-			parallel('sass')
-		);
-		watch(['src/components/**/*.+(js)', 'src/shared/**/*.+(js)','src/pages/**/*.+(js)' ],
-			parallel('script')
-		);
+		browserSync.notify("HTML <span color='green'>is supported</span> too!");
+		watch(['src/**/*.+(sass)'], parallel('sass'));
+		watch(['src/**/*.+(js)'], parallel('script'));
 		watch(['src/**/*.+(pug)'], parallel('pug'));
 		watch("dist/").on('change', browserSync.reload);
 	});
