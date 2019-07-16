@@ -18,6 +18,9 @@ export default function () {
 		watch(['src/components/**/*.+(sass|scss)', 'src/shared/**/*.+(sass|scss)','src/pages/**/*.+(sass|scss)' ],
 			parallel('sass')
 		);
+		watch(['src/components/**/*.+(js)', 'src/shared/**/*.+(js)','src/pages/**/*.+(js)' ],
+			parallel('script')
+		);
 		watch(['src/**/*.+(pug)'], parallel('pug'));
 		watch("dist/").on('change', browserSync.reload);
 	});

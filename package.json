@@ -36,9 +36,10 @@
     "del": "^5.0.0",
     "glob": "^7.1.4",
     "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-concat": "^2.6.1",
     "gulp-load-plugins": "^2.0.0",
     "gulp-pug": "^4.0.1",
-    "gulp-sass": "^4.0.2",
-    "gulp-sourcemaps": "^2.6.5"
+    "gulp-sass": "^4.0.2"
   }
 }

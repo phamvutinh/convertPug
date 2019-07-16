@@ -26,8 +26,11 @@ task(
 	series([
 		'clear',
 		parallel(
+			'pug',
 			'sass',
-			'pug'
+			'script',
+			'concatCSS',
+			'concatJS'
 		),
 		'browserSync'
 	])
