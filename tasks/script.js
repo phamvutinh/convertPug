@@ -5,10 +5,11 @@ const {
 } = require('gulp');
 const browserSync = require('browser-sync');
 const babel = require('gulp-babel');
-
+const concat = require('gulp-concat');
 export default function () {
 	task('script', function () {
 		return src('./src/**/*.js')
+			.pipe(concat('main.js'))
 			.pipe(
 				babel({
 					presets: ['@babel/env'],
