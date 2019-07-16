@@ -1,0 +1,44 @@
+{
+  "name": "phamvutinh",
+  "version": "0.0.1",
+  "description": "To build HTML CSS JS faster with PUG SASS Babel",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp serve",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phamvutinh/buildHTML.git"
+  },
+  "keywords": [
+    "sass",
+    "pug",
+    "babel",
+    "html",
+    "css",
+    "js"
+  ],
+  "author": "TinhPham",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/phamvutinh/buildHTML/issues"
+  },
+  "homepage": "https://github.com/phamvutinh/buildHTML#readme",
+  "devDependencies": {
+    "@babel/core": "^7.5.4",
+    "@babel/preset-env": "^7.5.4",
+    "@babel/register": "^7.4.4",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^10.0.2",
+    "babel-plugin-add-module-exports": "^1.0.2",
+    "browser-sync": "^2.26.7",
+    "del": "^5.0.0",
+    "glob": "^7.1.4",
+    "gulp": "^4.0.2",
+    "gulp-load-plugins": "^2.0.0",
+    "gulp-pug": "^4.0.1",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5"
+  }
+}
