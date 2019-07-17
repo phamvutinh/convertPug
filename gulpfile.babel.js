@@ -6,18 +6,14 @@ const {
 } = require('gulp');
 
 const glob = require('glob');
-const gulpLoadPlugins = require('gulp-load-plugins');
-const plugins = gulpLoadPlugins({
-	lazy: true
-});
+
 /// load all file tasks
 glob.sync('./tasks/**/*.js')
 	.filter(function (file) {
 		return /\.(js)$/i.test(file);
 	})
 	.map(function (file) {
-		require(file)(gulp,
-			plugins);
+		require(file)(gulp);
 	});
 // start default task
 task(
@@ -25,6 +21,8 @@ task(
 	series([
 		'clear',
 		parallel(
+			'images',
+			'fonts',
 			'pug',
 			'sass',
 			'script',

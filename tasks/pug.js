@@ -10,6 +10,5 @@ export default function () {
 		return src('./src/pages/**/*.pug')
 			.pipe(pug({}))
 			.pipe(dest('./dist'))
-			.pipe(browserSync.reload({ stream: true }));
 	});
 }
