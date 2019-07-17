@@ -19,7 +19,6 @@ glob.sync('./tasks/**/*.js')
 		require(file)(gulp,
 			plugins);
 	});
-
 // start default task
 task(
 	'serve',

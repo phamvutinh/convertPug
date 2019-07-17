@@ -1,5 +1,5 @@
 block var
-doctype html
+<!DOCTYPE html>
 html(dir='ltr', lang=en, itemscope, itemtype="http://schema.org/WebSite", prefix="og: http://ogp.me/ns#", class="no-js")
 	head
 		meta(charset='utf-8')
@@ -12,11 +12,14 @@ html(dir='ltr', lang=en, itemscope, itemtype="http://schema.org/WebSite", prefix
 		//- meta(name='apple-mobile-web-app-status-bar-style', content=SEO.mobile_color)
 		//- include ../includes/_seo
 		link(href="css/core.css", rel="stylesheet")
-		link(href="css/sass/main.css", rel="stylesheet")
+		link(href="css/main.css", rel="stylesheet")
 		title #{title}
 	body(class=bodyClass)
-		include ./header/index
+		header
+			include ./header/index
 		main
 			block main
-		include ./footer/index
-		//- include ../includes/_scripts
+		footer
+			include ./footer/index
+		script(src="js/core.js")
+		script(src="js/main.js")

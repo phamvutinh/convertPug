@@ -38,6 +38,7 @@
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "gulp-concat": "^2.6.1",
+    "gulp-inject": "^5.0.2",
     "gulp-load-plugins": "^2.0.0",
     "gulp-pug": "^4.0.1",
     "gulp-sass": "^4.0.2"

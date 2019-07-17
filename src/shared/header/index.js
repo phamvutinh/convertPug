@@ -1,1 +1,0 @@
-alert('fi2ss    ')

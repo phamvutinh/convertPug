@@ -4,11 +4,11 @@ const {
 	dest
 } = require('gulp');
 const sass = require('gulp-sass');
-const browserSync = require('browser-sync').create();
-
+const browserSync = require('browser-sync');
+const concat = require('gulp-concat');
 export default function () {
 	task('sass', function () {
-		return src('./src/sass/*.sass',{ sourcemaps: true })
+		return src('./src/shared/*.sass',{ sourcemaps: true })
 			.pipe(sass({
 				outputStyle: 'expanded',
 				sourceComments: false

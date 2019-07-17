@@ -13,9 +13,8 @@ export default function () {
 				baseDir: "./dist",
 			},
 			logPrefix: "TinhPhạm",
-			logFileChanges: false,
+			logFileChanges: false
 		});
-		browserSync.notify("HTML <span color='green'>is supported</span> too!");
 		watch(['src/**/*.+(sass)'], parallel('sass'));
 		watch(['src/**/*.+(js)'], parallel('script'));
 		watch(['src/**/*.+(pug)'], parallel('pug'));
