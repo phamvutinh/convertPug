@@ -1,7 +1,7 @@
 const concatDest = {
 	"styles": [
 		"resource/css/grid.css",
-		"resource/css/style.css",
+		"resource/css/reset.css",
 	],
 	"scripts": [
 		"resource/js/backToTop.js",

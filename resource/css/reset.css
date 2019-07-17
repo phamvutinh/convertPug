@@ -1,1 +1,33 @@
-*,div,figure,h1,h2,h3,h4,h5,h6,p,ul{margin:0;padding:0}*{box-sizing:border-box}:focus{outline:0}ul{list-style-type:none;margin-bottom:0;padding-left:0}body{margin:0;padding:0}
+*,
+div,
+figure,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul {
+	margin: 0;
+	padding: 0
+}
+
+* {
+	box-sizing: border-box
+}
+
+:focus {
+	outline: 0
+}
+
+ul {
+	list-style-type: none;
+	margin-bottom: 0;
+	padding-left: 0
+}
+
+body {
+	margin: 0;
+	padding: 0
+}
