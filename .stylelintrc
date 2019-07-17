@@ -1,0 +1,583 @@
+{
+	"syntax": "scss",
+	"plugins": [
+		"stylelint-selector-bem-pattern",
+		"stylelint-order"
+	],
+	"rules": {
+		#
+		Checking the match of the selector and the file name,
+		BEM errors# https: //github.com/postcss/postcss-bem-linter#custom-patterns
+			"plugin/selector-bem-pattern": [{
+					"implicitComponents": true,
+					"componentName": "[-a-z]+",
+					"componentSelectors": {
+						"initial": "^(\\.{componentName}(__[a-z]+|--[-a-z0-9]+|__[-a-z]+--[-a-z0-9]+|.[-a-z]+|__[a-z]+.[-a-z]+)?)$",
+						"combined": "^.+$"
+					},
+					"ignoreSelectors": [
+						"^\\.(no-)?js(-modal-open)?$",
+						"a(\\[[a-z]+|:[a-z]+)?",
+						"h[1-6]",
+						"pre",
+						"blockquote",
+						"thead",
+						"tr",
+						"img",
+						"img",
+						"p",
+						"table",
+						"^&:empty",
+						"#{\\$[-a-z]+}__[-a-z]+",
+						"^\\*$"
+					],
+				},
+				{
+					"severity": "warning",
+					"message": "Selector not from file name or BEM error"
+				}
+			],
+		#Checking the sequence in the context of the selector# https: //github.com/hudochenkov/stylelint-order/blob/master/rules/order/README.md
+			"order/order": [#Custom properties "custom-properties", #Impurity inclusions {
+				"type": "at-rule",
+				"name": "include",
+			}, #Properties "declarations", #Medical Journalism {
+				"type": "at-rule",
+				"name": "media",
+			}, #Pseudo - selectors and pseudo - elements {
+				"type": "rule",
+				"selector": "^&:\\w+$"
+			}, #Third - party nested selectors {
+				"type": "rule",
+				"selector": "^\\.[-_a-zA-Z0-9]+"
+			}, #Block elements {
+				"type": "rule",
+				"selector": "^&__[-a-z0-9]+"
+			}, #Block modifiers {
+				"type": "rule",
+				"selector": "^&--[-a-z0-9]+"
+			}, ],
+		#Checking the order of rules# https: //github.com/hudochenkov/stylelint-order/blob/master/rules/properties-order/README.md
+			"order/properties-order": [
+				[{
+						"properties": [
+							"content",
+							"box-sizing",
+							"display",
+							"flex",
+							"flex-wrap",
+							"flex-basis",
+							"flex-direction",
+							"flex-flow",
+							"flex-grow",
+							"flex-shrink",
+							"align-content",
+							"align-items",
+							"align-self",
+							"justify-content",
+							"order",
+							"grid",
+							"grid-area",
+							"grid-auto-*",
+							"grid-column",
+							"grid-column-*",
+							"grid-gap",
+							"grid-row",
+							"grid-row-*",
+							"grid-template",
+							"grid-template-*",
+							"position",
+							"z-index",
+							"top",
+							"right",
+							"bottom",
+							"left",
+							"width",
+							"min-width",
+							"max-width",
+							"height",
+							"min-height",
+							"max-height",
+							"overflow",
+							"overflow-*",
+							"margin",
+							"margin-*",
+							"border",
+							"border-*",
+							"padding",
+							"padding-*",
+						]
+					},
+					{
+						#
+						"emptyLineBefore": "always",
+						"properties": [
+							"transform",
+							"transform-*",
+							"backface-visibility",
+							"perspective",
+							"perspective-origin",
+							"transition",
+							"transition-*",
+							"animation",
+							"animation-*",
+						]
+					},
+				],
+				{
+					"severity": "warning",
+				}
+			],
+		#http: //stylelint.io/user-guide/rules/
+			"color-hex-case": ["lower", {
+				"severity": "warning",
+				"message": "HEX color lower case letters should be"
+			}],
+		"color-named": ["never", {
+			"message": "Colors keywords can not write"
+		}],
+		"color-no-invalid-hex": [true, {
+			"message": "HEX colors must be correctly written"
+		}],
+		"font-family-name-quotes": ["always-where-recommended", {
+			"message": "In the quotes of the font should be taken"
+		}],
+		"font-family-no-duplicate-names": [true, {
+			"message": "Font name should not be repeated"
+		}],
+		"font-family-no-missing-generic-family-keyword": [true, {
+			"message": "By specifying sans-serif / serif ... this should end"
+		}],
+		"font-weight-notation": ["numeric", {
+			"message": "Плотность — цифрой: https://goo.gl/58eKi7",
+			ignore: ["relative"]
+		}],
+		#"function-calc-no-invalid": [true, {
+			#
+			"message": "For calc () the syntax is incorrect"#
+		}],
+		"function-calc-no-unspaced-operator": [true, {
+			"message": "For calc (), spaces around operators are needed"
+		}],
+		"function-linear-gradient-no-nonstandard-direction": [true, {
+			"message": "Syntax gradient standard: https://goo.gl/ba4HEc"
+		}],
+		"function-comma-space-after": ["always", {
+			"message": "A comma is required"
+		}],
+		"function-comma-space-before": ["never", {
+			"message": "There should be no space before comma"
+		}],
+		"function-comma-newline-before": ["never-multi-line", {
+			"message": "Transfer to the comma should not be"
+		}],
+		"function-comma-newline-after": ["never-multi-line", {
+			"message": "Post-comma transfer should not be"
+		}],
+		"function-parentheses-newline-inside": ["never-multi-line", {
+			"message": "Transfer after the bracket should not be"
+		}],
+		"function-max-empty-lines": [0, {
+			"message": "Empty lines in functions need to be removed"
+		}],
+		"function-name-case": ["lower", {
+			"message": "Functions names in lower case should be typed"
+		}],
+		"function-whitespace-after": ["always", {
+			"message": "Always need spaces between functions."
+		}],
+		"function-url-scheme-whitelist": [
+			["data", "/^https/"], {
+				"message": "Background pictures only data: URL and https do you want"
+			}
+		],
+		"number-leading-zero": ["always", {
+			"message": "The zero before the point should be clearly indicated."
+		}],
+		"number-max-precision": [6, {
+			"message": "Maximum 6 characters after decimal point"
+		}],
+		"number-no-trailing-zeros": [true, {
+			"message": "Excess (optional) zero in a fraction"
+		}],
+		"string-no-newline": [true, {
+			"message": "В строчных данных не должно быть переносов"
+		}],
+		"string-quotes": ["single", {
+			"message": "In line data there should not be hyphenation."
+		}],
+		"length-zero-no-unit": [true, {
+			"message": "Zero does not need unit measurements."
+		}],
+		"time-min-milliseconds": [100, {
+			"message": "Time less than 100ms - it makes no sense to use"
+		}],
+		"unit-case": ["lower", {
+			"message": "Unit measurements with lowercase letters"
+		}],
+		"value-keyword-case": ["lower", {
+			"message": "Property Values Lowercase Required",
+			"ignoreProperties": ["/font-/", ]
+		}],
+		"unit-no-unknown": [true, {
+			"message": "There are no such units"
+		}],
+		"value-no-vendor-prefix": [true, {
+			"message": "Vendor prefixes in values should not be used."
+		}],
+		"property-no-vendor-prefix": [true, {
+			"message": "Properties with vendor prefixes should not be used."
+		}],
+		"value-list-comma-newline-after": ["always-multi-line", {
+			"message": "Values of hyphenation properties should not be"
+		}],
+		"value-list-comma-newline-before": ["never-multi-line", {
+			"message": "Values of hyphenation properties should not be"
+		}],
+		"value-list-comma-space-after": ["always-single-line", {
+			"message": "In the values after the comma, the space is required"
+		}],
+		"value-list-comma-space-before": ["never", {
+			"message": "Values before comma are not allowed."
+		}],
+		"property-blacklist": [
+			["text-rendering", ], {
+				"message": "Property from the blacklist"
+			}
+		],
+		"property-case": ["lower", {
+			"message": "Properties should be lower case letters"
+		}],
+		"property-no-unknown": [true, {
+			"message": "There is no such property"
+		}],
+		"declaration-bang-space-after": ["never", {
+			"message": "It should be removed after the exclamation mark"
+		}],
+		"declaration-bang-space-before": ["always", {
+			"message": "You want to leave a space before the exclamation mark"
+		}],
+		"declaration-colon-newline-after": ["always-multi-line", {
+			"message": "For multiple properties, each must be on its line"
+		}],
+		"declaration-space-after": ["always-single-line", {
+			"message": "Set the rule, put a space after the colon"
+		}],
+		"declaration-space-before": ["never", {
+			"message": "Do not use the space before the colon"
+		}],
+		"declaration-no-important": [true, {
+			#
+			"severity": "warning",
+			"message": "! important should be used with caution"
+		}],
+		"declaration-property-unit-blacklist": [{
+			"font-size": ["pt"],
+			"/ ^ animation /": ["ms"],
+			"/ ^ padding /": ["%"]
+		}, {
+			"message": "For this property, these units are in the black list"
+		}],
+		#"Declaration-property-value-blacklist": [{
+			#
+			"transform": ["/ scale3d /", "/ rotate3d /", "/ translate3d /"],
+			#"position": ["fixed"],
+			#"color": ["/ ^ green /"],
+			#
+		}, {
+			#
+			"message": "For this property, the value is in the black list"#
+		}],
+		"unit-blacklist": [
+			["mm", "cm", "in", "pc", ], {
+				"message": "These units are not allowed"
+			}
+		],
+		"declaration-block-no-duplicate-properties": [true, {
+			"message": "The rules should not be repeated"
+		}],
+		"declaration-block-no-shorthand-property-overrides": [true, {
+			"message": "This property does not obviously interrupt the other for the selector of this"
+		}],
+		"declaration-block-semicolon-newline-after": ["always", {
+			"message": "After the semicolon of the line, hyphenation is required"
+		}],
+		"declaration-single-line-max-declarations": [1, {
+			"message": "There is only one place on the line for one rule"
+		}],
+		"Declaration-block-trailing-semicolon": ["always", {
+			"message": "Property you want to end with every semicolon"
+		}],
+		"block-closing-brace-empty-line-before": ["never", {
+				"message": "Before"
+			}
+			"there should not be an empty string"
+		}],
+	"block-closing-brace-newline-after": ["always", {
+			"message": "After the"
+		}
+		"the line break should be"
+	}],
+"block-closing-brace-newline-before": ["always", {
+		"message": "Before"
+	}
+	"the line break should be"
+}], #"block-no-empty": [true, {
+	#
+	"severity": "warning",
+	#"message": "Empty blocks should not be written"#
+}],
+"block-opening-brace-newline-after": ["always", {
+		"message": "After" {
+			"a line break should be"
+		}],
+	"block-opening-brace-space-before": ["always", {
+			"message": "Before" {
+				"one space is needed"
+			}],
+		"selector-attribute-brackets-space-inside": ["never", {
+			"message": "Do not use space in the attribute selector"
+		}],
+		"selector-attribute-operator-space-after": ["never", {
+			"message": "You should not write a space in the attribute selector"
+		}],
+		"selector-attribute-operator-space-before": ["never", {
+			"message": "You should not write a space in the attribute selector"
+		}],
+		"selector-attribute-quotes": ["always", {
+			"message": "You must write quotes in the attribute selector"
+		}],
+		"selector-combinator-space-after": ["always", {
+			"message": "After the combinator in the selector, the space is needed"
+		}],
+		"selector-combinator-space-before": ["always", {
+			"message": "A space is needed before the combinator in the selector"
+		}],
+		"selector-attribute-operator-blacklist": [
+			["id"], {
+				"message": "Jedi should not be stylized by ID"
+			}
+		],
+		"selector-max-compound-selectors": [3, {
+			"severity": "warning",
+			"message": "More than 3-way selector you do not want"
+		}],
+		"selector-no-qualifying-type": [true, {
+			"severity": "warning",
+			"message": "Possibly oversaturated selector (type selector used)",
+			ignore: ["attribute"]
+		}],
+		"selector-pseudo-class-case": ["lower", {
+			"message": "Pseudo-classes need to type in lowercase letters"
+		}],
+		"selector-pseudo-class-no-unknown": [true, {
+			"message": "Pseudo-class of such existence is doubtful"
+		}],
+		"selector-pseudo-class-parentheses-space-inside": ["never", {
+			"message": "Spaces should not be inserted inside pseudo selectors"
+		}],
+		"selector-pseudo-element-case": ["lower", {
+			"message": "Pseudo-elements need to be typed in lowercase letters"
+		}],
+		"selector-pseudo-element-no-unknown": [true, {
+			"message": "There is no such pseudo-element on the bright side"
+		}],
+		"selector-type-case": ["lower", {
+			"message": "Selectors should be typed with lowercase letters"
+		}],
+		"selector-type-no-unknown": [true, {
+			"message": "There is no such selector on the bright side of the force"
+		}],
+		"selector-max-empty-lines": [0, {
+			"message": "Empty lines in selectors are not allowed"
+		}],
+		"selector-list-comma-newline-after": ["always", {
+			"message": "After the comma, the line break should be set"
+		}],
+		"selector-list-comma-newline-before": ["never-multi-line", {
+			"message": "There should not be a hyphen before the comma"
+		}],
+		"selector-list-comma-space-after": ["always-single-line", {
+			"message": "A comma must be a space"
+		}],
+		"selector-list-comma-space-before": ["never", {
+			"message": "There should be no space before comma"
+		}],
+		"rule-empty-line-before": ["always", {
+			"message": "Leave the empty line before the selector"
+			leave ",
+			ignore: ["after-comment"]
+		}],
+		"media-feature-colon-space-after": ["always", {
+			"message": "In @media after": "spaces are needed"
+		}],
+		"media-feature-colon-space-before": ["never", {
+			"message": "There should be no spaces in @media before": "
+		}],
+		"media-feature-name-case": ["lower", {
+			"message": "Use lowercase letters"
+		}],
+		"media-feature-name-no-vendor-prefix": [true, {
+			"severity": "warning",
+			"message": "You should not use vendor prefixes"
+		}],
+		"media-feature-parentheses-space-inside": ["never", {
+			"message": "Spaces after"("and before")
+			"cannot be used"
+		}],
+		"media-feature-range-operator-space-after": ["always", {
+			"message": "Space should be inserted after the range operator"
+		}],
+		"media-feature-range-operator-space-before": ["always", {
+			"message": "The space before the range operator should be set"
+		}],
+		"at-rule-blacklist": [
+			["extend", ], {
+				"message": "On the black list @, this rule is"
+			}
+		],
+		"at-rule-empty-line-before": ["always", {
+			"message": "Before the @ rules, leave the line blank (except @import and @include)",
+			ignoreAtRules: ["import", "include", "function", "return", "if", "else"],
+			ignore: ["after-comment"]
+		}],
+		"at-rule-name-case": ["lower", {
+			"message": "@ rules of lowercase should be typed"
+		}],
+		"at-rule-name-space-after": ["always", {
+			"message": "After the @-rule, you should put a space"
+		}],
+		"at-rule-no-unknown": [true, {
+			"message": "Unknown @ Rule",
+			ignoreAtRules: [
+				"/ ^ at- /",
+				"/ ^ mixin /",
+				"/ ^ include /",
+				"/ ^ if /",
+				"/ ^ else /",
+				"/ ^ function /",
+				"/ ^ return /",
+				"/ ^ each /",
+				"/ ^ while /",
+			]
+		}],
+		"at-rule-no-vendor-prefix": [true, {
+			"message": "For @ rules, vendor prefixes should not be used"
+		}],
+		"at-rule-semicolon-newline-after": ["always", {
+			"message": "In the @-rules after; a new line should be"
+		}],
+		"at-rule-semicolon-space-before": ["never", {
+			"message": "In the @ rules before; there should be no spaces"
+		}],
+		"comment-empty-line-before": ["always", {
+			"message": "Before comment, an empty line is required",
+			except: ["first-nested"],
+			ignore: ["stylelint-commands"]
+		}],
+		"comment-no-empty": [true, {
+			"message": "You need to remove the empty comment"
+		}],
+		"comment-whitespace-inside": ["always", {
+			"message": "In the commentary, spaces in the beginning about the end are needed"
+		}],
+		"comment-word-blacklist": [
+			[/ ((X | x) + yi | (X | x) yu | (X | x) yo | (B | b) Lyad | (M | m) ud | (P | p) Ido | (P | p) one | (P | p) food | (^ | \ s) + (B | b) la) /]
+			"message": "Comment is crappy, leave it with you"
+		}
+	],
+	"indentation": [2, {
+		"message": "You must use two spaces for indents"
+	}],
+	"max-empty-lines": [3, {
+		"message": "Maximum number of empty lines is valid: 3"
+	}],
+	"max-nesting-depth": [3, {
+		"message": "Attachments of more than 3 levels - the dark side of the path",
+		"severity": "warning",
+		"ignore": ["blockless-at-rules"]
+	}],
+	"no-duplicate-selectors": [true, {
+		"message": "You don't want to duplicate selectors"
+	}],
+	"no-eol-whitespace": [true, {
+		"message": "Empty characters at the end of the line. Use https://goo.gl/Co2tZ8"
+	}],
+	"no-extra-semicolons": [true, {
+		"message": "Two semicolons do not want you"
+	}],
+	"no-missing-end-of-source-newline": [true, {
+		"message": "The file should end with an empty line: https://goo.gl/Co2tZ8"
+	}],
+	"media-feature-name-no-unknown": [true, {
+		"message": "There are no such media conditions on the bright side of the force"
+	}],
+	"keyframe-declaration-no-important": [true, {
+		"message": "! important in keyframe is ignored by some browsers"
+	}], #"no-descending-specificity": [true, {
+		#
+		"message": "Less specific selector than written above"#
+	}],
+	"no-duplicate-at-import-rules": [true, {
+		"message": "You do not want to re-import the file"
+	}],
+	"no-empty-source": [true, {
+		"message": "You do not want empty files"
+	}],
+	"shorthand-property-no-redundant-values": [true, {
+		"message": "In the property value, redundancy is superfluous, in short, you can write"
+	}],
+	"selector-combinator-blacklist": [
+		[">", ], {
+			"severity": "warning",
+			"message": "Combinator> dangerously associate CSS with DOM"
+		}
+	],
+	"selector-max-attribute": [1, {
+		#
+		"severity": "warning",
+		"message": "Attributes in the selector more than one should not be used"
+	}],
+	"selector-max-type": [2, {
+		#
+		"severity": "warning",
+		"message": "You should not use more than two selectors by tag"
+	}],
+	"selector-max-class": [2, {
+		#
+		"severity": "warning",
+		"message": "You should not use more than two classes in the selector"
+	}],
+	"selector-max-combinators": [2, {
+		#
+		"severity": "warning",
+		"message": "You should not use more than two combinators in the selector"
+	}], #"selector-nested-pattern": ["^ (& | \\. \\ w + \\ s + &) (__ \\ w | - \\ w)?", {
+		#
+		"message": "You can not invest such a selector"#
+	}],
+	"selector-pseudo-class-blacklist": [
+		["/ ^ nth- /", ], {
+			#
+			"severity": "warning",
+			"message": "You should not use such a pseudo-class"
+		}
+	],
+	"value-list-max-empty-lines": [0, {
+		"message": "Empty lines in property values ​​are not allowed"
+	}],
+	"declaration-block-semicolon-newline-before": ["never-multi-line", {
+		"message": "Wrap before the symbol; invalid"
+	}],
+	"declaration-block-semicolon-space-before": ["never", {
+		"message": "Space before the character; not allowed"
+	}],
+	"selector-descendant-combinator-no-non-space": [true, {
+		"message": "Combined selectors should be separated with one space"
+	}],
+	"linebreaks": ["unix", {
+		"severity": "warning",
+		"message": "The line endings should be LF. Customize the editor follows"
+	}],
+}
+}

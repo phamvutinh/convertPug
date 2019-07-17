@@ -6,7 +6,7 @@ const {
 
 export default function () {
 	task('images', () => {
-		return src('./src/assets/images/**/*+(jpg|jpeg|gif|svg|png)')
+		return src('./src/assets/images/**/*+(jpg|jpeg|gif|svg|png|ico)')
 			.pipe(dest('./dist/assets/images'))
 	})
 	task('fonts',() =>{
