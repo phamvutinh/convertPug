@@ -2,6 +2,7 @@ const concatDest = {
 	"styles": [
 		"resource/css/grid.css",
 		"resource/css/reset.css",
+		"bower_components/swiper/dist/css/swiper.min.css"
 	],
 	"scripts": [
 		"resource/js/backToTop.js",
