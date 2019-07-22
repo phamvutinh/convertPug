@@ -1,5 +1,5 @@
-const {task} = require('gulp');
-const del = require('del');
+import {task}from 'gulp';
+import del from 'del';
 export default function () {
 	task('clear', function () {
 		return del('./dist');

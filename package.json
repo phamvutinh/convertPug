@@ -42,5 +42,11 @@
     "gulp-sass": "^4.0.2",
     "node-notifier": "^5.4.0"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "browserslist": [
+    "last 2 version",
+    "> 1%",
+    "maintained node versions",
+    "not dead"
+  ]
 }

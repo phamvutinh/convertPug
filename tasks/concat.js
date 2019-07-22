@@ -9,13 +9,13 @@ const concatDest = {
 	]
 
 }
-const {
+import {
 	task,
 	src,
 	dest
-} = require('gulp');
+} from 'gulp';
 
-const concat = require('gulp-concat');
+import concat from 'gulp-concat';
 export default function () {
 	task('concatCSS', () => {
 		return src(concatDest.styles, {

@@ -1,9 +1,10 @@
-const {
+import {
 	task,
 	parallel,
 	watch
-} = require('gulp');
-const browserSync = require('browser-sync').create();
+} from 'gulp';
+import browserSync from 'browser-sync';
+browserSync.create();
 export default function () {
 	task('browserSync', function () {
 		browserSync.init({

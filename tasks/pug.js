@@ -1,10 +1,10 @@
-const {
+import {
 	task,
 	src,
 	dest
-} = require('gulp');
-const pug = require('gulp-pug');
-const notifier = require('node-notifier');
+} from 'gulp';
+import pug from 'gulp-pug';
+import notifier from 'node-notifier';
 
 export default function () {
 	task('pug', function buildHTML() {
