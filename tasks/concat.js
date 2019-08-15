@@ -2,7 +2,12 @@ const concatDest = {
 	"styles": [
 		"resource/css/grid.css",
 		"resource/css/reset.css",
-		"bower_components/swiper/dist/css/swiper.min.css"
+		"bower_components/swiper/dist/css/swiper.min.css",
+		"node_modules/@fortawesome/fontawesome-free/css/fontawesome.min.css",
+		"node_modules/@fortawesome/fontawesome-free/css/regular.min.css",
+		"node_modules/@fortawesome/fontawesome-free/css/brands.min.css",
+		"node_modules/@fortawesome/fontawesome-free/css/v4-shims.min.css",
+		"node_modules/@fortawesome/fontawesome-free/css/solid.min.css"
 	],
 	"scripts": [
 		"resource/js/backToTop.js",
